@@ -5,6 +5,7 @@
         <input type="checkbox" v-on:change="markComplete">
       </label>
       {{todo.title}}
+      <button class="del" @click="$emit('del-todo', todo.id)">x</button>
     </p>
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
   props: ["todo"],
   methods: {
     markComplete(){
-      console.log(12)
+      this.todo.completed = !this.todo.completed;
     }
   }
 }
